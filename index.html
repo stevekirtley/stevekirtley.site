@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Steve Kirtley — SJK Consultancy & Development. Full stack web developer, consultant and fix-it man. Building websites and applications since 1998." />
+  <title>SJK Consultancy & Development — Steve Kirtley</title>
+
+  <!-- Optional: nice, modern font with a safe fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg0:#07080C;
+      --bg1:#0B0C10;
+      --card:#0D0F14F2;
+      --stroke:rgba(255,255,255,.12);
+      --stroke2:rgba(255,255,255,.08);
+      --text:#F3F1EA;
+      --muted:rgba(243,241,234,.72);
+      --muted2:rgba(243,241,234,.56);
+      --accent:#D8C07A; /* quiet gold */
+      --shadow: 0 22px 70px rgba(0,0,0,.60);
+      --radius: 26px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 700px at 15% 10%, rgba(216,192,122,.10), transparent 60%),
+        radial-gradient(900px 620px at 85% 30%, rgba(255,255,255,.06), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 44px 18px;
+      overflow-x:hidden;
+    }
+
+    /* subtle vignette */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background: radial-gradient(circle at 50% 10%, transparent 35%, rgba(0,0,0,.40) 100%);
+      opacity:.9;
+    }
+
+    .wrap{ width: min(980px, 100%); position:relative; }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap: 0; }
+    @media (max-width: 860px){ .grid{ grid-template-columns: 1fr; } }
+
+    .left{ padding: 52px 48px 44px; position:relative; }
+    @media (max-width: 860px){ .left{ padding: 38px 26px 28px; } }
+
+    .right{
+      padding: 52px 48px 44px;
+      border-left: 1px solid var(--stroke2);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+    }
+    @media (max-width: 860px){ .right{ border-left: 0; border-top: 1px solid var(--stroke2); padding: 28px 26px 34px; } }
+
+    .kicker{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom: 18px;
+      color: var(--muted2);
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before{
+      content:"";
+      width: 34px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: .95;
+    }
+
+    h1{
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-size: 44px;
+      line-height: 1.02;
+      margin: 0 0 12px;
+      letter-spacing: -0.5px;
+      font-weight: 600;
+    }
+    @media (max-width: 860px){ h1{ font-size: 36px; } }
+
+    .sub{
+      margin: 0 0 26px;
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 450;
+    }
+
+    .sub strong{
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    p{ margin: 0 0 16px; line-height: 1.7; font-size: 16px; color: var(--muted); }
+
+    .lead{ color: var(--text); opacity: .92; font-size: 17px; }
+    .lead em{ font-style: normal; color: var(--text); font-weight: 600; }
+
+    .ctaBlock{ margin-top: 26px; display:flex; flex-wrap:wrap; gap: 14px; align-items:center; }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(216,192,122,.35);
+      background: rgba(216,192,122,.10);
+      color: var(--text);
+      font-weight: 650;
+      text-decoration: none;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .button:hover{
+      transform: translateY(-1px);
+      background: rgba(216,192,122,.14);
+      border-color: rgba(216,192,122,.55);
+    }
+    .button:active{ transform: translateY(0px); }
+
+    .button:focus-visible,
+    a:focus-visible{
+      outline: 3px solid rgba(216,192,122,.35);
+      outline-offset: 3px;
+      border-radius: 14px;
+    }
+
+    .email{
+      color: var(--text);
+      text-decoration: none;
+      position:relative;
+      font-weight: 600;
+      padding: 6px 2px;
+    }
+
+    .email::after{
+      content:"";
+      position:absolute;
+      left: 0;
+      bottom: 2px;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transform: scaleX(.35);
+      transform-origin:left;
+      opacity:.95;
+      transition: transform .2s ease;
+    }
+
+    .email:hover::after{ transform: scaleX(1); }
+
+    .meta{
+      margin-top: 30px;
+      padding-top: 18px;
+      border-top: 1px solid var(--stroke2);
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    .meta span{ display:inline-flex; align-items:center; gap:10px; }
+
+    .pill{
+      border: 1px solid var(--stroke2);
+      background: rgba(255,255,255,.02);
+      padding: 14px 14px;
+      border-radius: 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .pill h3{
+      margin: 0 0 10px;
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      font-weight: 700;
+    }
+
+    .pill p{ margin: 0; font-size: 15px; color: var(--text); opacity:.92; }
+
+    .stack{ display:grid; gap: 12px; }
+
+    footer{ margin-top: 18px; font-size: 12px; color: rgba(243,241,234,.55); }
+
+    @media (prefers-reduced-motion: reduce){
+      .button, .email::after{ transition: none; }
+      .button:hover{ transform:none; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="wrap">
+    <section class="card" aria-label="SJK Consultancy & Development holding page">
+      <div class="grid">
+
+        <div class="left">
+          <div class="kicker">Consultancy • Full‑stack delivery • Rescue &amp; audits</div>
+
+          <h1>Steve Kirtley</h1>
+          <p class="sub"><strong>SJK Consultancy &amp; Development</strong></p>
+
+          <p class="lead">
+            Building websites and applications since <em>1998</em>. I’m a full stack web developer, consultant, and general fix‑it man — with a particular interest in usability and accessibility.
+          </p>
+
+          <p>
+            I help individuals, businesses, and organisations design, build, improve, and rescue digital projects — from quick fixes to longer-term rebuilds.
+          </p>
+          <div class="ctaBlock">
+            <a class="button" href="mailto:steve@sothoughtful.co.uk?subject=Enquiry%20%E2%80%94%20SJK%20Consultancy%20%26%20Development">
+              Email me
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="email" href="mailto:steve@sothoughtful.co.uk">steve@sothoughtful.co.uk</a>
+            <a class="email" href="https://www.linkedin.com/in/stevekirtley/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+
+          <div class="meta" aria-label="Additional details">
+            <span>UK-based</span>
+            <span>Remote worker</span>
+          </div>
+
+          <footer>
+            No portfolio links on this holding page yet — happy to share examples by email.
+          </footer>
+        </div>
+
+        <aside class="right" aria-label="About">
+          <div class="stack">
+            <div class="pill">
+              <h3>What I do</h3>
+              <p>Full stack development, technical consultancy, audits, fixes, and pragmatic improvements.</p>
+            </div>
+
+            <div class="pill">
+              <h3>How I work</h3>
+              <p>Clear comms, sensible scope, accessibility-first thinking, and solutions you can maintain.</p>
+            </div>
+
+            <div class="pill">
+              <h3>Also</h3>
+              <p>University associate lecturer, teaching computing and communications for The Open University.</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
